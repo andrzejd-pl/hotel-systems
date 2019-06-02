@@ -15,6 +15,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
+
 public class MainActivity extends AppCompatActivity {
     private RecyclerViewAdapter mAdapter;
     private ArrayList<Service> mServices = new ArrayList<>();
@@ -33,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
         addAllServices();
+
+        MobileAds.initialize(this, "ca-app-pub-5073529030491450~4979234130");
+        AdView mAdView;
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
     }
 
     private void addAllServices() {
