@@ -16,12 +16,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 
-public class MainActivity extends AppCompatActivity {
+public class ServicesActivity extends AppCompatActivity {
     private RecyclerViewAdapter mAdapter;
     private ArrayList<Service> mServices = new ArrayList<>();
 
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_services);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         mAdapter = new RecyclerViewAdapter(this, mServices);
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(MainActivity.this, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(ServicesActivity.this, DividerItemDecoration.VERTICAL));
         addAllServices();
 
         MobileAds.initialize(this, "ca-app-pub-5073529030491450~4979234130");
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ServiceResponse> call, Throwable t) {
                 Log.d("retrofit", t.toString());
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ServicesActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

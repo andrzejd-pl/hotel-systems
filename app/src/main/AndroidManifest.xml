@@ -11,16 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".NewOrderActivity"></activity>
+        <activity android:name=".OrdersActivity" />
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ServicesActivity" />
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5073529030491450~4979234130"/>
+            android:value="ca-app-pub-5073529030491450~4979234130" />
     </application>
 
 </manifest>
