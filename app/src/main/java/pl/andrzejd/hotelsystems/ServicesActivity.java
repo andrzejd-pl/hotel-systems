@@ -42,7 +42,8 @@ public class ServicesActivity extends AppCompatActivity {
         MobileAds.initialize(this, "ca-app-pub-5073529030491450~4979234130");
         AdView mAdView;
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("650CC3BEEB61A55E6CE7ECF8E7F3092F").build();
+
         mAdView.loadAd(adRequest);
 
     }
