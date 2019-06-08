@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 import java.util.List;
 
+import pl.andrzejd.hotelsystems.services.Service;
+
 public class Order {
 
     @SerializedName("orderId")

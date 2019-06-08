@@ -1,4 +1,4 @@
-package pl.andrzejd.hotelsystems;
+package pl.andrzejd.hotelsystems.services;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import pl.andrzejd.hotelsystems.R;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Service> mServices;

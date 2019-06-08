@@ -1,5 +1,6 @@
 package pl.andrzejd.hotelsystems;
 
+import pl.andrzejd.hotelsystems.services.ServiceResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;

@@ -1,9 +1,9 @@
-package pl.andrzejd.hotelsystems;
-
-import com.google.gson.annotations.SerializedName;
+package pl.andrzejd.hotelsystems.services;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pl.andrzejd.hotelsystems.services.Service;
 
 public class ServiceResponse extends ArrayList<Service> {
 //    @SerializedName("services")

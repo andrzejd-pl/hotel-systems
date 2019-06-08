@@ -1,4 +1,4 @@
-package pl.andrzejd.hotelsystems;
+package pl.andrzejd.hotelsystems.services;
 
 import com.google.gson.annotations.SerializedName;
 

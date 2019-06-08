@@ -1,4 +1,4 @@
-package pl.andrzejd.hotelsystems;
+package pl.andrzejd.hotelsystems.services;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import pl.andrzejd.hotelsystems.ApiClient;
+import pl.andrzejd.hotelsystems.ApiInterface;
+import pl.andrzejd.hotelsystems.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

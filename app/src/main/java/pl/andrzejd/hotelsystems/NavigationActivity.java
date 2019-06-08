@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import pl.andrzejd.hotelsystems.services.ServicesActivity;
+
 public class NavigationActivity extends AppCompatActivity {
     private TextView mTextMessage;
 
@@ -67,7 +69,7 @@ public class NavigationActivity extends AppCompatActivity {
         viewServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Service.class);
+                Intent intent = new Intent(getApplicationContext(), ServicesActivity.class);
                 startActivity(intent);
             }
         });
