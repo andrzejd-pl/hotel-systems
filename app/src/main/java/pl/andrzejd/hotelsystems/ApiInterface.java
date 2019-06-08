@@ -1,5 +1,6 @@
 package pl.andrzejd.hotelsystems;
 
+import pl.andrzejd.hotelsystems.services.NewOrder;
 import pl.andrzejd.hotelsystems.services.ServiceResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,6 +11,6 @@ public interface ApiInterface {
     @GET("services")
     Call<ServiceResponse> getServices();
 
-    @POST("order")
-    Call<Order> post(@Body Order order);
+    @POST("orders")
+    Call<String> post(@Body NewOrder order);
 }

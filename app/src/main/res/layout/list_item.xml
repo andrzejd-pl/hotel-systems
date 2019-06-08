@@ -23,7 +23,7 @@
         android:text="WARTOŚĆ"/>
 
     <Button
-        android:id="@+id/button_Order"
+        android:id="@+id/order_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
