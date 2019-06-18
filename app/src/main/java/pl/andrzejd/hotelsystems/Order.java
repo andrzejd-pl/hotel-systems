@@ -11,29 +11,38 @@ public class Order {
 
     @SerializedName("orderId")
     int orderId;
-    @SerializedName("data")
-    Date data;
-    private List<Service> orderedServices;
+    @SerializedName("userId")
+    int userId;
+    @SerializedName("date")
+    Date date;
 
-
-    public Order(int orderId, int userId, List<Service> orderedServices) {
+    public Order(int orderId, int userId, Date date) {
         this.orderId = orderId;
-        this.orderedServices = orderedServices;
+        this.userId = userId;
+        this.date = date;
     }
 
     public int getOrderId() {
         return orderId;
     }
 
-    public List<Service> getOrderedServices() {
-        return orderedServices;
-    }
-
-    public void setOrderedServices(List<Service> orderedServices) {
-        this.orderedServices = orderedServices;
-    }
-
     public void setOrderId(int orderId) {
         this.orderId = orderId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
