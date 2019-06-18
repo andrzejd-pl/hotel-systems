@@ -1,25 +1,26 @@
 package pl.andrzejd.hotelsystems;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-import java.util.List;
-
-import pl.andrzejd.hotelsystems.services.Service;
+import java.sql.Timestamp;
 
 public class Order {
 
     @SerializedName("orderId")
+    @Expose
     int orderId;
     @SerializedName("userId")
+    @Expose
     int userId;
-    @SerializedName("date")
-    Date date;
+    @SerializedName("data")
+    @Expose
+    Timestamp data;
 
-    public Order(int orderId, int userId, Date date) {
+    public Order(int orderId, int userId, Timestamp date) {
         this.orderId = orderId;
         this.userId = userId;
-        this.date = date;
+        this.data = date;
     }
 
     public int getOrderId() {
@@ -38,11 +39,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public Date getDate() {
-        return date;
+    public Timestamp getDate() {
+        return data;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void Timestamp(Timestamp date) {
+        this.data = date;
     }
 }

@@ -73,7 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     call.enqueue(new Callback<String>() {
                         @Override
-                        public void onResponse(Call<String> call, Response<String> response) {;
+                        public void onResponse(Call<String> call, Response<String> response) {
                             Log.d("retrofit", "ok");
                         }
 

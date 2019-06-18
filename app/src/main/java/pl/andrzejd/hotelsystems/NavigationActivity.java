@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import pl.andrzejd.hotelsystems.services.ServicesActivity;
+import pl.andrzejd.hotelsystems.ui.login.LoginActivity;
 
 public class NavigationActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -43,7 +44,6 @@ public class NavigationActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        System.out.println("Create NavigationActivity view");
     }
 
     private void setUserTypeOnButtonClick(){
@@ -78,7 +78,8 @@ public class NavigationActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               finish();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

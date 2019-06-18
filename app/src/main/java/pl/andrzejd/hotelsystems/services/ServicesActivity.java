@@ -54,7 +54,7 @@ public class ServicesActivity extends AppCompatActivity {
     private void addAllServices() {
         Retrofit retrofit = ApiClient.getClient();
         ApiInterface client = retrofit.create(ApiInterface.class);
-        Call<ServiceResponse> call = client.getServices();
+        Call<ServiceResponse> call = client.getAllServices();
 
         call.enqueue(new Callback<ServiceResponse>() {
             @Override

@@ -19,8 +19,6 @@ import pl.andrzejd.hotelsystems.orders.services.OrderServicesActivity;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private static final String DATE_PATTERN = "yyyy-MM-dd";
-
     private List<Order> mData;
     private LayoutInflater mInflater;
     private Context context;
@@ -45,8 +43,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         Order order = mData.get(position);
         holder.orderId.setText(String.valueOf(order.getOrderId()));
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_PATTERN);
-        holder.orderData.setText(simpleDateFormat.format(order.getDate()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String date  = dateFormat.format(order.getDate());
+        holder.orderData.setText(date);
 
         holder.infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
