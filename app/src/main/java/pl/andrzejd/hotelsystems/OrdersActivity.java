@@ -37,14 +37,6 @@ public class OrdersActivity extends AppCompatActivity  implements MyRecyclerView
         orders.add( new Order(2,1,new Date()));
         orders.add( new Order(3,1,new Date()));
 
-//        // date to populate the RecyclerView with
-//        ArrayList<String> animalNames = new ArrayList<>();
-//        animalNames.add("Horse");
-//        animalNames.add("Cow");
-//        animalNames.add("Camel");
-//        animalNames.add("Sheep");
-//        animalNames.add("Goat");
-
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rvAnimals);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

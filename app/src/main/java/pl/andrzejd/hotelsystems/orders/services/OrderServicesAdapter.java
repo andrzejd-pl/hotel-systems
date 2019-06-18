@@ -1,34 +1,25 @@
-package pl.andrzejd.hotelsystems.orders;
+package pl.andrzejd.hotelsystems.orders.services;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
-import pl.andrzejd.hotelsystems.NavigationActivity;
-import pl.andrzejd.hotelsystems.Order;
 import pl.andrzejd.hotelsystems.R;
-import pl.andrzejd.hotelsystems.orders.services.OrderServicesActivity;
+import pl.andrzejd.hotelsystems.services.Service;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class OrderServicesAdapter extends RecyclerView.Adapter<OrderServicesAdapter.ViewHolder> {
 
-    private static final String DATE_PATTERN = "yyyy-MM-dd";
-
-    private List<Order> mData;
+    private List<Service> mData;
     private LayoutInflater mInflater;
-    private Context context;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public MyRecyclerViewAdapter(Context context, List<Order> data) {
-        this.context = context;
+    OrderServicesAdapter(Context context, List<Service> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -36,25 +27,16 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.service_row, parent, false);
         return new ViewHolder(view);
     }
 
+    // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Order order = mData.get(position);
-        holder.orderId.setText(String.valueOf(order.getOrderId()));
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_PATTERN);
-        holder.orderData.setText(simpleDateFormat.format(order.getDate()));
-
-        holder.infoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, OrderServicesActivity.class);
-                context.startActivity(intent);
-            }
-        });
+//        String animal = mData.get(position);
+        holder.name.setText("name");
+        holder.price.setText("price");
     }
 
     // total number of rows
@@ -66,16 +48,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView orderId;
-        TextView orderData;
-        Button infoButton;
+        TextView name;
+        TextView price;
 
         ViewHolder(View itemView) {
             super(itemView);
-            orderId = itemView.findViewById(R.id.tvOrderId);
-            orderData = itemView.findViewById(R.id.tvOrderData);
-            infoButton = itemView.findViewById(R.id.tvInfoButton);
-
+            name = itemView.findViewById(R.id.serviceName);
+            price = itemView.findViewById(R.id.servicePrice);
             itemView.setOnClickListener(this);
         }
 
@@ -86,12 +65,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    public Order getItem(int id) {
+    Service getItem(int id) {
         return mData.get(id);
     }
 
     // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
