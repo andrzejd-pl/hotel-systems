@@ -36,7 +36,7 @@ public class OrderServicesAdapter extends RecyclerView.Adapter<OrderServicesAdap
     public void onBindViewHolder(ViewHolder holder, int position) {
         Service service = mData.get(position);
         holder.serviceName.setText(service.getName());
-        holder.servicePrice.setText(String.valueOf(service.getPrice()));
+        holder.servicePrice.setText("Price: "+ service.getPrice());
     }
 
     @Override

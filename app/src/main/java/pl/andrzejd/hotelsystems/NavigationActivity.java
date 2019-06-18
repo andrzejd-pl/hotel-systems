@@ -47,15 +47,6 @@ public class NavigationActivity extends AppCompatActivity {
     }
 
     private void setUserTypeOnButtonClick(){
-        Button createOrder = findViewById(R.id.create_order);
-        createOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewOrderActivity.class);
-                startActivity(intent);
-            }
-        });
-
         Button viewOrders = findViewById(R.id.view_orders);
         viewOrders.setOnClickListener(new View.OnClickListener() {
             @Override
