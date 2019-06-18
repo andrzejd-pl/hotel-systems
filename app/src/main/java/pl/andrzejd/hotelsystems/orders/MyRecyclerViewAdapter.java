@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import pl.andrzejd.hotelsystems.NavigationActivity;
@@ -17,13 +18,15 @@ import pl.andrzejd.hotelsystems.R;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private static final String DATE_PATTERN = "yyyy-MM-dd";
+
+    private List<Order> mData;
     private LayoutInflater mInflater;
     private Context context;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public MyRecyclerViewAdapter(Context context, List<String> data) {
+    public MyRecyclerViewAdapter(Context context, List<Order> data) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
@@ -38,12 +41,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        /*TODO: Change values*/
-        String animal = mData.get(position);
-//        holder.orderId.setText(animal.getOrderId());
-        holder.orderId.setText(animal);
-//        holder.orderData.setText(animal.getDate().toString());
-        holder.orderData.setText(animal);
+        Order order = mData.get(position);
+        holder.orderId.setText(String.valueOf(order.getOrderId()));
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_PATTERN);
+        holder.orderData.setText(simpleDateFormat.format(order.getDate()));
 
         holder.infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +85,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    public String getItem(int id) {
+    public Order getItem(int id) {
         return mData.get(id);
     }
 

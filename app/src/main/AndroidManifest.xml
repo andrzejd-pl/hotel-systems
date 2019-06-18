@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OrderInfoActivity"></activity>
+        <activity android:name=".OrderServicesActivity"></activity>
+        <activity android:name=".OrderInfoActivity" />
         <activity android:name=".NewOrderActivity" />
         <activity android:name=".OrdersActivity" />
         <activity
