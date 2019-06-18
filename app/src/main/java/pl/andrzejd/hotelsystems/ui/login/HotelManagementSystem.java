@@ -22,7 +22,7 @@ import android.widget.Toast;
 import pl.andrzejd.hotelsystems.NavigationActivity;
 import pl.andrzejd.hotelsystems.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class HotelManagementSystem extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 

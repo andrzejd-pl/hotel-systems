@@ -21,7 +21,7 @@
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.login.HotelManagementSystem"
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
