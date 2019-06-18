@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -46,6 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         viewHolder.textKey.setText(service.getName());
         viewHolder.textValue.setText("Price: " + service.getPrice().toString());
+        viewHolder.serviceId = service.serviceId;
     }
 
     @Override
@@ -57,6 +57,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView textKey, textValue;
         RelativeLayout parentLayout;
         Button orderButton;
+        Integer serviceId;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,7 +70,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 public void onClick(View v) {
                     Retrofit retrofit = ApiClient.getClient();
                     ApiInterface client = retrofit.create(ApiInterface.class);
-                    Call<String> call = client.post(new NewOrder(1, Arrays.asList(1, 2)));
+                    Call<String> call = client.post(new NewOrder(1, Arrays.asList(serviceId)));
 
                     call.enqueue(new Callback<String>() {
                         @Override
