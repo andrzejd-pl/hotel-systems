@@ -40,12 +40,11 @@ public class OrderServicesActivity extends AppCompatActivity implements OrderSer
             }
         });
 
-//        // set up the RecyclerView
-//        RecyclerView recyclerView = findViewById(R.id.rwOrderService);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        adapter = new OrderServicesAdapter(this, null);
-//        adapter.setClickListener(this);
-//        recyclerView.setAdapter(adapter);
+        RecyclerView recyclerView = findViewById(R.id.rwOrderService);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new OrderServicesAdapter(this, services);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

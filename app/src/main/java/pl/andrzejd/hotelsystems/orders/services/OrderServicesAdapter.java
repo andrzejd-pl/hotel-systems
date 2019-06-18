@@ -34,12 +34,11 @@ public class OrderServicesAdapter extends RecyclerView.Adapter<OrderServicesAdap
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        String animal = mData.get(position);
-        holder.name.setText("name");
-        holder.price.setText("price");
+        Service service = mData.get(position);
+        holder.serviceName.setText(service.getName());
+        holder.servicePrice.setText(String.valueOf(service.getPrice()));
     }
 
-    // total number of rows
     @Override
     public int getItemCount() {
         return mData.size();
@@ -48,13 +47,13 @@ public class OrderServicesAdapter extends RecyclerView.Adapter<OrderServicesAdap
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView name;
-        TextView price;
+        TextView serviceName;
+        TextView servicePrice;
 
         ViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.serviceName);
-            price = itemView.findViewById(R.id.servicePrice);
+            serviceName = itemView.findViewById(R.id.serviceName);
+            servicePrice = itemView.findViewById(R.id.servicePrice);
             itemView.setOnClickListener(this);
         }
 
@@ -69,12 +68,10 @@ public class OrderServicesAdapter extends RecyclerView.Adapter<OrderServicesAdap
         return mData.get(id);
     }
 
-    // allows clicks events to be caught
     void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
-    // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
