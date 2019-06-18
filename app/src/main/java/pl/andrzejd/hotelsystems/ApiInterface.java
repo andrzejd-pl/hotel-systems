@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiInterface {
     @GET("services")
@@ -18,7 +19,7 @@ public interface ApiInterface {
     @GET("orders/user1")
     Call<OrderResponse> getOrders();
 
-    @GET("services")
-    Call<ServiceResponse> getOrderServices();
+    @GET("/orders/service/{orderId}")
+    Call<ServiceResponse> getOrderServices(@Path("orderId") String orderId);
 
 }

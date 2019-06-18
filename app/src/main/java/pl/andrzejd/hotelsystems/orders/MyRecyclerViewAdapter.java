@@ -40,7 +40,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Order order = mData.get(position);
+        final Order order = mData.get(position);
         holder.orderId.setText(String.valueOf(order.getOrderId()));
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -51,6 +51,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, OrderServicesActivity.class);
+                intent.putExtra("ORDER_ID", String.valueOf(order.getOrderId()));
                 context.startActivity(intent);
             }
         });
